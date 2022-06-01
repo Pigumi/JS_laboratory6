@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Laboratorio 6 - 1</title>
+</head>
+<body onload="posicionar_cursor()">
+    <!-- contenedores -->
+    
+    <div class="container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <!--titulo-->
+                <h1>Calculo de Salario</h1>
+                <!--fin titulo-->
+
+               <!--comeinzo formulario-->
+               <form action="" method="post">
+                   <!--nombre-->
+                   <div class="mb-3">
+                       <label for="exampleInputText1" class="form-label">Nombre del Empleado</label>
+                       <input type="text" class="form-control" id="txtNombre" aria-describedby="textHelp" onblur=" validar_contenido(document.getElementById('txtNombre'), document.getElementById('lblErrorNombre'))">
+                       <div id="lblErrorNombre" class="form-text text-danger"></div>
+                   </div>
+
+                   <!--salario-->
+                   <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label">Salario por Hora</label>
+                    <input type="text" class="form-control" id="txtSalarioxHora" aria-describedby="textHelp" onblur=" validar_contenido(document.getElementById('txtSalarioxHora'), document.getElementById('lblErrorSalario'))"> 
+                    <div id="lblErrorSalario" class="form-text text-danger"></div>
+                </div>
+
+                <!--hora-->
+                <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label">Horas Trabajadas</label>
+                    <input type="text" class="form-control" id="txtHorasTrabajadas" aria-describedby="textHelp" onblur=" validar_contenido(document.getElementById('txtHorasTrabajadas'), document.getElementById('lblErrorHora'))">
+                    <div id="lblErrorHora" class="form-text text-danger"></div>
+                </div>
+
+                <!--checkbox para horas extras-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="chkHorasExtras" onclick="mostrar_ocultar_horas_extras()">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Ver Horas Extra
+                    </label>
+                </div>
+                <!--textbox para ingresar la cantidad de horas extras-->
+                <div class="mb-3" style="display:none ;" id="divHorasExtras">
+                    <label for="exampleInputText1" class="form-label">Cantidad de Horas Extras</label>
+                    <input type="text" class="form-control" id="txtHorasExtras" aria-describedby="textHelp">
+                    <div id="lblErrorHorasExtras" class="form-text"></div>
+                </div>
+
+                <div id="verSalario"></div>
+                <!--mostrar salario bruto-->
+                <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label">Salario Bruto</label>
+                    <input type="text" class="form-control" id="txtSalarioBruto" aria-describedby="textHelp" disabled>
+                </div>
+                
+                <select class="form-select" aria-label="Default select example" id="slProvincia" onchange="mostrar_distrito()">
+                   
+                </select>
+                <br>
+                <select class="form-select" aria-label="Default select example" id="slDistrito">
+                
+                </select>
+                <br>
+                <!--botones-->
+                <button type="button" class="btn btn-primary" onclick="calcular_salario()">Calcular</button>
+                <button type="button" class="btn btn-primary">Borrar</button>
+                <!--fin botones-->
+                <!--fin formulario-->
+               </form>   
+            </div>
+    </div>
+    
+    <script src="funciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
