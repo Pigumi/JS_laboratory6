@@ -86,11 +86,11 @@ function posicionar_cursor(){
     document.getElementById("txtNombre").focus();
 }
 
+//validacion de datos obligatorios para problema 1 y 2
 function validar_contenido(campo, etiqueta){
-    //validacion de datos
     if(campo.value.trim() == ""){
         etiqueta.innerHTML="Este campo es necesario"
-        campo.focus();
+        
         return 
     }
     else
@@ -102,4 +102,26 @@ function mostrar_ocultar_horas_extras(){
         document.getElementById("divHorasExtras").style.display="block"
     else
         document.getElementById("divHorasExtras").style.display="none"
+}
+
+//funciones para problema 2
+function validar_info(){
+
+    var password = document.getElementById("txtPassword").value;
+    var comentario = document.getElementById("txtComentario").value;
+
+    //validar contraseña
+    if (password.trim().length < 8){
+        alert("La contraseña no debe tener menos de 8 caracteres")
+        document.getElementById("txtPassword").focus();
+        document.getElementById("txtPassword").value = ""
+        return 
+    }
+
+    //valida que el comentario tenga menos de 50 caracteres
+    if(comentario.trim().length > 50){
+        alert("el comentario no puede tener mas de 50 carácteres")
+        document.getElementById("txtComentario").focus();
+        return 
+    }
 }
